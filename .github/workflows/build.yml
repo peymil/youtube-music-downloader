@@ -66,10 +66,18 @@ jobs:
           mkdir -p dist
           cp "src-tauri/target/${{ matrix.target }}/release/${{ matrix.binary }}" "dist/${{ matrix.asset }}"
 
+      # WebView2 needs this DLL next to the exe on Windows; --no-bundle does not copy it.
+      - name: Collect WebView2 loader
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp "src-tauri/target/${{ matrix.target }}/release/WebView2Loader.dll" dist/
+
       - name: Create GitHub release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/${{ matrix.asset }}
+          files: dist/*
           generate_release_notes: true
           fail_on_unmatched_files: true
