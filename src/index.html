@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Delikan - Playlist Downloader</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="row">
+        <input id="url" type="url" placeholder="Playlist or video URL" autocomplete="off" />
+        <button id="fetch" class="secondary">Fetch</button>
+      </section>
+
+      <section class="row dir-row">
+        <label class="grow">
+          <span>Save to</span>
+          <input id="dir" type="text" autocomplete="off" />
+        </label>
+        <button id="browse" class="secondary">Browse</button>
+      </section>
+
+      <section class="current">
+        <div class="label" id="current-title">Current:</div>
+        <div class="bar-row">
+          <progress id="current-progress" max="1" value="0"></progress>
+          <span id="current-pct">0%</span>
+        </div>
+      </section>
+
+      <pre id="log" class="log" aria-live="polite"></pre>
+
+      <section class="row footer">
+        <div class="bar-row grow">
+          <progress id="total-progress" max="1" value="0"></progress>
+          <span id="total-pct">0/0</span>
+        </div>
+        <span id="error-count" class="errors">Errors: 0</span>
+        <button id="download">Download</button>
+        <button id="cancel" class="danger" disabled>Cancel</button>
+      </section>
+
+      <section class="row status-row">
+        <div id="status" class="status grow">Ready</div>
+        <button id="tools" class="secondary">Update tools</button>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

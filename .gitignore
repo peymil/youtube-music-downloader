@@ -1,0 +1,46 @@
+# Frontend Build Outputs
+dist/
+dist-js/
+build/
+.astro/
+out/
+
+# Dependencies and Package Managers
+node_modules/
+/app-builds
+/release
+
+# Rust Backend (Tauri specific)
+src-tauri/target/
+target/
+src-tauri/WixTools/
+src-tauri/gen/
+
+# Environment Variables and Secrets
+.env
+.env.local
+.env.*.local
+
+# Logs and Debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun.lockb
+logs
+*.log
+debug.log
+
+# IDEs, Editors, and OS-specific Files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+bin
+logs

@@ -1,0 +1,212 @@
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --border: #d2d2d7;
+  --accent: #2563eb;
+  --accent-text: #ffffff;
+  --danger: #b42318;
+  --log-bg: #f0f0f3;
+  --radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1c1c1e;
+    --surface: #2c2c2e;
+    --text: #f5f5f7;
+    --muted: #a1a1a6;
+    --border: #48484a;
+    --accent: #3b82f6;
+    --danger: #f04438;
+    --log-bg: #111113;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1c1c1e;
+  --surface: #2c2c2e;
+  --text: #f5f5f7;
+  --muted: #a1a1a6;
+  --border: #48484a;
+  --accent: #3b82f6;
+  --danger: #f04438;
+  --log-bg: #111113;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+label.grow {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+}
+
+/* The folder field has a caption above it; keep Browse level with the input, not the caption. */
+.dir-row {
+  align-items: flex-end;
+}
+
+label.grow span {
+  color: var(--muted);
+}
+
+input[type="url"],
+input[type="text"],
+select {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 7px 10px;
+  min-width: 0;
+}
+
+#url {
+  flex: 1;
+}
+
+button {
+  font: inherit;
+  color: var(--accent-text);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  padding: 7px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.secondary {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+.current .label {
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+progress {
+  flex: 1;
+  width: 100%;
+  height: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 5px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--border);
+}
+
+progress::-webkit-progress-value {
+  background: var(--accent);
+}
+
+progress::-moz-progress-bar {
+  background: var(--accent);
+}
+
+.bar-row span {
+  min-width: 88px;
+  text-align: right;
+  color: var(--muted);
+}
+
+.errors {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.errors.has-errors {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.log {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--log-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  white-space: pre;
+}
+
+.footer {
+  margin-top: 0;
+}
+
+.status {
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status-row {
+  margin-top: 0;
+}
